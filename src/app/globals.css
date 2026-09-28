@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #05080f;
+  --panel: #0b1220;
+  --border: #1a2740;
+  --accent: #22c55e;
+  --accent-dim: #16a34a;
+  --danger: #ef4444;
+  --warn: #f59e0b;
+  --muted: #8b9bb4;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: #e8eef7;
+  min-height: 100%;
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse 90% 55% at 50% -25%, rgba(34, 197, 94, 0.14), transparent),
+    radial-gradient(ellipse 45% 35% at 100% 0%, rgba(59, 130, 246, 0.07), transparent),
+    radial-gradient(ellipse 30% 25% at 0% 100%, rgba(16, 185, 129, 0.05), transparent);
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border backdrop-blur;
+    border-color: var(--border);
+    background-color: rgba(11, 18, 32, 0.94);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 font-semibold text-black transition hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-red-600 px-4 py-2.5 font-semibold text-white transition hover:bg-red-500 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border bg-transparent px-4 py-2.5 font-medium text-slate-200 transition hover:bg-emerald-500/10 disabled:cursor-not-allowed disabled:opacity-50;
+    border-color: var(--border);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(34, 197, 94, 0.5);
+  }
+  .input {
+    @apply w-full rounded-lg border px-3 py-2.5 text-sm text-slate-100 outline-none placeholder:text-slate-500 focus:ring-2;
+    border-color: var(--border);
+    background-color: #070d16;
+    --tw-ring-color: rgba(16, 185, 129, 0.4);
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-medium uppercase tracking-wider text-slate-400;
+  }
+}
+
+.log-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.log-scroll::-webkit-scrollbar-thumb {
+  background: #243247;
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgba(34, 197, 94, 0.35);
+  color: #fff;
+}
